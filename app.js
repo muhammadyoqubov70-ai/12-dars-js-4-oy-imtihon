@@ -213,6 +213,22 @@
 // ○ aks holda oxirgi element id + 1
 // ● yangi student objectni arrayga qo‘shing va o‘sha objectni return qiling.
 
+// let students = [];
+
+// function createStudent(name, age, score) {
+//   if (!name || name.trim() === "") return "Invalid name";
+//   if (age < 5) return "Invalid age";
+//   if (score < 0 || score > 100) return "Invalid score";
+
+//   const id = students.length === 0 ? 1 : students[students.length - 1].id + 1;
+
+//   const student = { id, name, age, score };
+//   students.push(student);
+//   return student;
+// }
+
+// console.log(createStudent("", 16, 85));
+
 // ==========================================================================================================
 // 6.2) READ — getStudentById(id)
 
@@ -222,6 +238,16 @@
 // ● topilsa student objectni return qiling.
 // ● topilmasa null qaytaring.
 
+// function getStudentById(id) {
+//   return students.find((s) => s.id === id) || null;
+// }
+
+// console.log(createStudent("Ali", 16, 85));
+// console.log(createStudent("Vali", 17, 90));
+
+// console.log(getStudentById(1));
+// console.log(getStudentById(2));
+// console.log(getStudentById(99));
 // ==========================================================================================================
 // 6.3) UPDATE — updateStudent(id, data)
 // Vazifa:
@@ -235,6 +261,26 @@
 // ○ name bo‘sh bo‘lsa "Invalid name"
 // ○ age 5 dan kichik bo‘lsa "Invalid age"
 // ○ score 0..100 oralig‘ida bo‘lmasa "Invalid score"
+
+// function updateStudent(id, data) {
+//   const student = students.find((s) => s.id === id);
+//   if (!student) return "Student not found";
+
+//   if (data.name !== undefined && (!data.name || data.name.trim() === ""))
+//     return "Invalid name";
+//   if (data.age !== undefined && data.age < 5) return "Invalid age";
+//   if (data.score !== undefined && (data.score < 0 || data.score > 100))
+//     return "Invalid score";
+
+//   Object.assign(student, data);
+//   return student;
+// }
+
+// createStudent("Ali", 16, 85);
+// createStudent("Vali", 17, 90);
+
+// console.log(updateStudent(99, { score: 95 }));
+// console.log(updateStudent(1, { name: "" }));
 
 // ======================================================================================================
 
