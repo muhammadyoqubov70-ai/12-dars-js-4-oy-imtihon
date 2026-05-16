@@ -12,6 +12,7 @@
 // ● sumTo(1) → 1
 // ● sumTo(0) → 0
 // // ● sumTo(-10) → 0
+
 // function sumTo(n) {
 //   if (n <= 0) return 0;
 
@@ -75,6 +76,18 @@
 // ● reverseStr("salom") → "molas"
 // ● reverseStr("abc") → "cba"
 // ● reverseStr("") → ""
+
+// function reverseStr(str) {
+//   let result = "";
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     result += str[i];
+//   }
+//   return result;
+// }
+
+// console.log(reverseStr("ona"));
+// console.log(reverseStr("abc"));
+// console.log(reverseStr("madam"));
 
 // ============================================================================================================
 
