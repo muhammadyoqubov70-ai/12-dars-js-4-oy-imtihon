@@ -85,9 +85,7 @@
 //   return result;
 // }
 
-// console.log(reverseStr("ona"));
-// console.log(reverseStr("abc"));
-// console.log(reverseStr("madam"));
+// console.log(reverseStr("amin"));
 
 // ============================================================================================================
 
@@ -105,6 +103,18 @@
 // ● countVowels("JAVA") → 2 (A, A)
 // ● countVowels("bbb") → 0
 
+// function countVowels(str) {
+//   return str
+//     .toLowerCase()
+//     .split("")
+//     .filter((char) => "aeiou".includes(char)).length;
+// }
+
+// // Testlar
+// console.log(countVowels("Salom")); // 2
+// console.log(countVowels("JAVA")); // 2
+// console.log(countVowels("bbb")); // 0
+
 // ================================================================================================================
 
 // 5) findMax(arr) — eng katta sonni topish
@@ -121,6 +131,24 @@
 // ● findMax([-10, -3, -7]) → -3
 // ● findMax([]) → null
 
+// function findMax(arr) {
+//   if (arr.length === 0) return null;
+
+//   let max = arr[0];
+
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] > max) {
+//       max = arr[i];
+//     }
+//   }
+
+//   return max;
+// }
+
+// // Testlar
+// console.log(findMax([1, 5, 3]));       // 5
+// console.log(findMax([-10, -3, -7]));   // -3
+// console.log(findMax([]));              // null
 //============================================================================================================
 
 // 6) To‘liq CRUD masala (bitta data bilan)
@@ -133,6 +161,44 @@
 // score: 85
 // }
 // Siz students bilan ishlaydigan 4 ta asosiy CRUD function yozishingiz kerak.
+// let students = [];
+// let nextId = 1;
+
+// function addStudent(name, age, score) {
+//   const student = { id: nextId++, name, age, score };
+//   students.push(student);
+//   return student;
+// }
+
+// function getAll() {
+//   return students;
+// }
+
+// function getById(id) {
+//   return students.find((s) => s.id === id) || null;
+// }
+
+// function update(id, newData) {
+//   const student = students.find((s) => s.id === id);
+//   if (!student) return null;
+//   Object.assign(student, newData);
+//   return student;
+// }
+
+// function remove(id) {
+//   const index = students.findIndex((s) => s.id === id);
+//   if (index === -1) return null;
+//   return students.splice(index, 1)[0];
+// }
+
+// addStudent("Ali", 16, 85);
+// addStudent("Vali", 17, 90);
+// addStudent("Kamol", 15, 70);
+
+// console.log(getAll());
+// console.log(getById(2));
+// console.log(update(1, { score: 95 }));
+// console.log(remove(3));
 
 // =============================================================================================================
 // 6.1) CREATE — createStudent(name, age, score)
@@ -146,12 +212,35 @@
 // ○ array bo‘sh bo‘lsa id = 1
 // ○ aks holda oxirgi element id + 1
 // ● yangi student objectni arrayga qo‘shing va o‘sha objectni return qiling.
-// 6.2) READ — getStudentById(id)
 
 // ==========================================================================================================
+// 6.2) READ — getStudentById(id)
 
 // Vazifa:
 // id bo‘yicha studentni topib qaytaring.
 // Shartlar:
 // ● topilsa student objectni return qiling.
 // ● topilmasa null qaytaring.
+
+// ==========================================================================================================
+// 6.3) UPDATE — updateStudent(id, data)
+// Vazifa:
+// id bo‘yicha student toping va data ichidagi qiymatlar bilan yangilang.
+// Shartlar:
+// ● data ichida quyidagilar kelishi mumkin: name, age, score
+// ● Faqat kelgan fieldlarni yangilang, qolganiga tegmang.
+// ● Agar student topilmasa "Student not found" qaytaring.
+// ● Yangilangan student objectni return qiling.
+// ● Update paytida ham validatsiya bo‘lsin:
+// ○ name bo‘sh bo‘lsa "Invalid name"
+// ○ age 5 dan kichik bo‘lsa "Invalid age"
+// ○ score 0..100 oralig‘ida bo‘lmasa "Invalid score"
+
+// ======================================================================================================
+
+// 6.4) DELETE — deleteStudent(id)
+// Vazifa:
+// id bo‘yicha studentni o‘chiring.
+// Shartlar:
+// ● agar topilsa, arraydan o‘chirib, o‘chirilgan studentni return qiling
+// ● topilmasa null qaytaring
