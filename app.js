@@ -290,3 +290,17 @@
 // Shartlar:
 // ● agar topilsa, arraydan o‘chirib, o‘chirilgan studentni return qiling
 // ● topilmasa null qaytaring
+function deleteStudent(id) {
+  const index = students.findIndex((s) => s.id === id);
+  if (index === -1) return null;
+  return students.splice(index, 1)[0];
+}
+
+// 
+createStudent("Ali", 16, 85);
+createStudent("Vali", 17, 90);
+createStudent("Kamol", 15, 70);
+
+console.log(deleteStudent(99));
+console.log(deleteStudent(2));
+console.log(students);
